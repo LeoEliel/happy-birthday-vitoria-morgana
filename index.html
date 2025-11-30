@@ -103,22 +103,16 @@
         .party-mode {
             animation: rainbow-flash 0.5s infinite;
         }
-        
-        /* Player Oculto */
-        #hidden-player {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
+        .aspect-w-16 {
+            aspect-ratio: 16 / 9;
         }
+        .aspect-h-9 {
+            aspect-ratio: 16 / 9;
+        }
+
     </style>
 </head>
 <body class="font-body">
-
-    <!-- Player Invisível (Ocupado via JS) -->
-    <div id="hidden-player"></div>
-
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col items-center justify-center p-4 text-center relative overflow-hidden">
         <div class="absolute top-20 left-10 text-6xl opacity-20 animate-bounce">🐾</div>
@@ -281,7 +275,11 @@
                         <span class="text-gray-500">MAGIC!</span>
                     </a>
                 </div>
+                <!-- Player Invisível (Ocupado via JS) -->
+                <div id="hidden-player" class="flex justify-center items-center w-full mt-4">
+                </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -324,7 +322,8 @@
             // 2. Tocar Música (Método Embed Hidden)
             // Isso cria um iframe do YouTube invisível que toca automaticamente porque foi disparado por um clique
             const playerDiv = document.getElementById('hidden-player');
-            playerDiv.innerHTML = '<iframe width="1" height="1" src="https://www.youtube.com/embed/yURRmWtbTbo?autoplay=1&start=15" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            playerDiv.innerHTML = 
+            '<div class="aspect-w-16 aspect-h-9 w-full max-w-md"><iframe class="w-full h-full" src="https://www.youtube.com/embed/yURRmWtbTbo?si=qrUp73p9OhQUdMII" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
             
             const elementDestination = document.getElementById(targetId);
 
