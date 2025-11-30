@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geralda 30 | Badass & Cute</title>
+    <title>Vitória 26 👑| Badass & Pets </title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fontes: Black Ops One (Militar/Forte) e Pacifico (Fofa/Manuscrita) e Quicksand (Arredondada) -->
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     
     <script>
@@ -23,8 +22,11 @@
                         'cute': ['"Pacifico"', 'cursive'],
                         'body': ['"Quicksand"', 'sans-serif'],
                     },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(rgba(255, 102, 196, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 102, 196, 0.1) 1px, transparent 1px)",
+                    cursor: {
+                        'paw': 'url(https://cur.cursors-4u.net/nature/nat-10/nat984.cur), auto',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
                     }
                 }
             }
@@ -34,224 +36,365 @@
     <style>
         body {
             background-color: #0f0f0f;
-            background-image: 
-                linear-gradient(rgba(255, 102, 196, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 102, 196, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff66c4' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             color: white;
             overflow-x: hidden;
+            cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat984.cur), auto;
+            transition: background-color 0.5s;
         }
 
-        /* Título com Glitch Effect (Badass) */
-        .glitch {
-            position: relative;
-        }
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .glitch { position: relative; }
+        .glitch::before, .glitch::after {
+            content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
         .glitch::before {
-            left: 2px;
-            text-shadow: -1px 0 #ff66c4;
-            clip: rect(24px, 550px, 90px, 0);
+            left: 2px; text-shadow: -1px 0 #ff66c4; clip: rect(24px, 550px, 90px, 0);
             animation: glitch-anim-2 3s infinite linear alternate-reverse;
         }
         .glitch::after {
-            left: -2px;
-            text-shadow: -1px 0 #00f3ff;
-            clip: rect(85px, 550px, 140px, 0);
+            left: -2px; text-shadow: -1px 0 #00f3ff; clip: rect(85px, 550px, 140px, 0);
             animation: glitch-anim 2.5s infinite linear alternate-reverse;
         }
         @keyframes glitch-anim {
-            0% { clip: rect(10px, 9999px, 30px, 0); }
-            20% { clip: rect(80px, 9999px, 100px, 0); }
-            40% { clip: rect(10px, 9999px, 50px, 0); }
-            60% { clip: rect(40px, 9999px, 80px, 0); }
-            80% { clip: rect(20px, 9999px, 60px, 0); }
-            100% { clip: rect(70px, 9999px, 90px, 0); }
+            0% { clip: rect(10px, 9999px, 30px, 0); } 100% { clip: rect(70px, 9999px, 90px, 0); }
         }
 
-        /* Botão "Jelly" (Fofo) */
-        .btn-jelly {
-            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        .btn-jelly { transition: all 0.3s cubic-bezier(.25, .8, .25, 1); }
+        .btn-jelly:hover { transform: scale(1.1) rotate(-3deg); box-shadow: 0 0 20px #ff66c4; }
+        
+        /* Estilo para os Posters de Procurado */
+        .wanted-poster {
+            background: #1a1a1a;
+            border: 4px solid white;
+            padding: 1rem;
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            user-select: none; /* Para evitar selecionar ao clicar rápido */
         }
-        .btn-jelly:hover {
-            transform: scale(1.1) rotate(-3deg);
-            box-shadow: 0 0 20px #ff66c4;
-        }
-        .btn-jelly:active {
-            transform: scale(0.95);
-        }
-
-        /* Bordas de Sticker */
-        .sticker {
-            background: white;
-            padding: 5px;
-            border-radius: 10px;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
-            transform: rotate(2deg);
-            transition: transform 0.2s;
-        }
-        .sticker:hover {
+        .wanted-poster:hover {
             transform: rotate(0deg) scale(1.05);
             z-index: 10;
+            border-color: #ccff00;
+            box-shadow: 0 0 25px #ccff00;
+        }
+        .mugshot {
+            filter: grayscale(100%) contrast(120%);
+            transition: filter 0.3s;
+        }
+        .wanted-poster:hover .mugshot {
+            filter: none;
         }
 
-        /* Graffiti Text */
-        .graffiti {
-            text-shadow: 2px 2px 0px #000, 4px 4px 0px #ff66c4;
+        /* Estilo da Playlist */
+        .playlist-item:hover {
+            background: rgba(255, 102, 196, 0.1);
+            border-left: 4px solid #ccff00;
+        }
+
+        /* Animação do Easter Egg */
+        @keyframes rainbow-flash {
+            0% { background-color: #0f0f0f; }
+            25% { background-color: #2c001e; }
+            50% { background-color: #001a1a; }
+            75% { background-color: #1a1a00; }
+            100% { background-color: #0f0f0f; }
+        }
+        .party-mode {
+            animation: rainbow-flash 0.5s infinite;
+        }
+        
+        /* Player Oculto */
+        #hidden-player {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
         }
     </style>
 </head>
 <body class="font-body">
 
+    <!-- Player Invisível (Ocupado via JS) -->
+    <div id="hidden-player"></div>
+
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col items-center justify-center p-4 text-center relative overflow-hidden">
+        <div class="absolute top-20 left-10 text-6xl opacity-20 animate-bounce">🐾</div>
+        <div class="absolute bottom-20 right-10 text-6xl opacity-20 animate-pulse">💀</div>
+        <div class="absolute top-1/2 left-5 text-4xl opacity-30 rotate-12">🌿</div>
+        <div class="absolute bottom-1/4 right-1/4 text-5xl opacity-20 -rotate-12 animate-pulse delay-300">🎸</div>
         
-        <!-- Elementos flutuantes de fundo -->
-        <div class="absolute top-20 left-10 text-6xl opacity-20 animate-bounce">💀</div>
-        <div class="absolute bottom-20 right-10 text-6xl opacity-20 animate-pulse">💖</div>
-        <div class="absolute top-1/2 right-20 text-4xl opacity-30 rotate-12">⚡</div>
-
-        <div class="z-10 bg-badass-black/80 p-8 rounded-3xl border-4 border-cute-pink shadow-[0_0_30px_rgba(255,102,196,0.3)] backdrop-blur-sm">
+        <div class="z-10 bg-badass-black/90 p-8 rounded-3xl border-4 border-cute-pink shadow-[0_0_50px_rgba(255,102,196,0.2)] backdrop-blur-md">
             <h2 class="font-cute text-4xl md:text-5xl text-electric-blue mb-2 rotate-[-2deg]">Happy Birthday</h2>
             
-            <h1 class="font-tough text-6xl md:text-9xl uppercase tracking-tighter text-white glitch mb-4" data-text="GERALDA">
-                GERALDA
+            <h1 class="font-tough text-6xl md:text-9xl uppercase tracking-tighter text-white glitch mb-4" data-text="VITORIA">
+                VITÓRIA
             </h1>
             
-            <div class="inline-block bg-toxic-green text-black font-bold px-4 py-1 transform -rotate-2 text-xl font-tough mb-6 border-2 border-white">
-                LEVEL 30 UNLOCKED
+            <div class="inline-block bg-toxic-green text-black font-bold px-4 py-1 transform -rotate-2 text-xl font-tough mb-6 border-2 border-white shadow-lg">
+                LEVEL 26 UNLOCKED
             </div>
 
-            <p class="text-xl md:text-2xl max-w-lg mx-auto mb-8 font-bold">
-                Metade <span class="text-cute-pink">Princesa</span>, Metade <span class="text-electric-blue">Perigo</span>.
+            <p class="text-xl md:text-3xl max-w-lg mx-auto mb-2 font-bold leading-relaxed">
+                Metade <span class="text-cute-pink font-cute text-3xl md:text-4xl">Natureza & Bichos</span>,<br> 
+                Metade <span class="text-electric-blue font-tough text-3xl md:text-4xl">Radical</span>.
             </p>
+            
+            <p class="text-sm md:text-base text-gray-400 mb-6 font-body italic">
+                (E aquele 1% Princesa, só pra manter a classe 👑)
+            </p>
+            
+            <div class="mb-8 transform rotate-1 hover:scale-110 transition duration-300">
+                <span class="bg-white text-black font-tough px-4 py-2 text-lg border-2 border-black shadow-[4px_4px_0px_#ccff00]">
+                    UMA VIDA 100% ANIMAL 🐾
+                </span>
+            </div>
 
-            <button onclick="playRock()" class="btn-jelly bg-cute-pink text-white font-black text-xl px-10 py-4 rounded-full border-4 border-white flex items-center gap-3 mx-auto">
-                <span>🤘</span> BORA COMEMORAR <span>🎀</span>
+            <button id="btn-liberar-festa" data-target="#radio-section" onclick="playRock('#radio-section')" class="btn-jelly bg-cute-pink text-white font-black text-xl px-10 py-4 rounded-full border-4 border-white flex items-center gap-3 mx-auto shadow-[0_0_20px_#ff66c4]">
+                <span>🎸</span> LIBERAR A FESTA <span>🏍️</span>
             </button>
+            <p class="text-xs text-gray-500 mt-2">Clique para iniciar a trilha sonora 🔊</p>
         </div>
     </section>
 
-    <!-- The Dual Personality Section -->
+    <!-- Seção A GANGUE -->
     <section class="py-20 container mx-auto px-4">
-        <h2 class="text-center font-tough text-4xl mb-16 graffiti text-white">CHOOSE YOUR FIGHTER</h2>
+        <div class="text-center mb-16">
+            <h2 class="font-tough text-5xl text-white graffiti mb-2 text-shadow">A GANGUE</h2>
+            <p class="text-cute-pink font-cute text-2xl">Os essenciais para a fuga perfeita</p>
+        </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Lado Badass (Motos) -->
-            <div class="bg-gray-900 border-2 border-electric-blue rounded-2xl p-8 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 bg-electric-blue text-black font-bold px-4 py-2 rounded-bl-xl font-tough">RIDER MODE</div>
-                <div class="text-6xl mb-6 transform group-hover:-translate-x-2 transition">🏍️</div>
-                <h3 class="font-tough text-3xl mb-4 text-electric-blue">Rainha do Asfalto</h3>
-                <p class="text-gray-300 text-lg">
-                    Cabelo ao vento, jaqueta de couro e zero paciência para trânsito devagar. Aos 30, a única regra é: se tem duas rodas e motor, a gente pilota.
-                </p>
-                <div class="mt-6 flex gap-2">
-                    <span class="bg-gray-800 px-3 py-1 rounded text-xs border border-gray-600">Velocidade</span>
-                    <span class="bg-gray-800 px-3 py-1 rounded text-xs border border-gray-600">Adrenalina</span>
+        <div class="grid md:grid-cols-3 gap-8 justify-center">
+            
+            <!-- Card 1: O Estilo -->
+            <div class="wanted-poster transform rotate-1">
+                <div class="bg-white text-black font-tough text-center text-3xl mb-2 tracking-widest">WANTED</div>
+                <div class="aspect-square bg-gray-800 mb-4 border-2 border-gray-600 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1607560105214-0aaa5f8fcba4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVsZXRyaWMlMjBndWl0YXJ8ZW58MHx8MHx8fDA%3D" class="w-full h-full object-cover mugshot" alt="Estilo Rock">
+                </div>
+                <div class="text-center">
+                    <h3 class="text-electric-blue font-bold text-2xl font-tough uppercase">O Estilo</h3>
+                    <p class="text-xs text-gray-400 font-mono mb-2">ID: #ROCK-LOOK</p>
+                    <div class="bg-toxic-green text-black font-bold text-sm px-2 py-1 inline-block transform -rotate-1">
+                        CRIME: Excesso de Atitude 🎸
+                    </div>
                 </div>
             </div>
 
-            <!-- Lado Cute (Animais) -->
-            <div class="bg-gray-900 border-2 border-cute-pink rounded-2xl p-8 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 bg-cute-pink text-white font-bold px-4 py-2 rounded-bl-xl font-cute">Pet Lover</div>
-                <div class="text-6xl mb-6 transform group-hover:translate-x-2 transition">🐶</div>
-                <h3 class="font-cute text-4xl mb-4 text-cute-pink">Mãe de Pet</h3>
-                <p class="text-gray-300 text-lg">
-                    Pode ter cara de brava na moto, mas derrete igual manteiga quando vê um cachorro na rua. Especialista em afofar bichinhos e falar com voz de bebê.
-                </p>
-                <div class="mt-6 flex gap-2">
-                    <span class="bg-gray-800 px-3 py-1 rounded text-xs border border-gray-600">Fofura</span>
-                    <span class="bg-gray-800 px-3 py-1 rounded text-xs border border-gray-600">Paciência</span>
+            <!-- Card 2: A Lenda (Geralda) - EASTER EGG AQUI -->
+            <!-- Clique 5 vezes aqui para ativar -->
+            <div class="wanted-poster z-10 scale-105 cursor-pointer" onclick="clickEasterEgg()" title="Será que tem um segredo?">
+                <div class="bg-white text-black font-tough text-center text-3xl mb-2 tracking-widest">LEADER</div>
+                <div class="aspect-square bg-gray-800 mb-4 border-2 border-gray-600 overflow-hidden relative">
+                    <img src="https://scontent.fjpr3-1.fna.fbcdn.net/v/t39.30808-6/469981091_1126898138949655_4658735159002812655_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=1WMOIecvWUUQ7kNvwHgt4o_&_nc_oc=Admfza6t1clDlxi36kxajvCw3hNR10WfQc0-zvJw7Edhu0jpQkux5ZsO-WPpYH_ogSvZInxVOeQ6t21X3Rf-_HqL&_nc_zt=23&_nc_ht=scontent.fjpr3-1.fna&_nc_gid=Ed65cviyuZ-oTx4VqVJzXQ&oh=00_Afj62-xI8CwoQMDCIZbRaqzR673jAHek-tIlWBgGwkEI2A&oe=693282D6" class="w-full h-full object-cover mugshot" id="geralda-img" alt="Geralda">
+                    <div id="click-counter" class="absolute top-2 right-2 text-toxic-green font-tough text-4xl drop-shadow-md opacity-0 transition">5</div>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-white font-bold text-2xl font-tough uppercase">Vitória Morgana de Araújo Santos</h3>
+                    <p class="text-xs text-gray-400 font-mono mb-2">ID: #BOSS-26</p>
+                    <div class="bg-toxic-green text-black font-bold text-sm px-2 py-1 inline-block">
+                        CRIME: Roubar a cena
+                    </div>
                 </div>
             </div>
+
+            <!-- Card 3: O Espírito -->
+            <div class="wanted-poster transform -rotate-1">
+                <div class="bg-white text-black font-tough text-center text-3xl mb-2 tracking-widest">WANTED</div>
+                <div class="aspect-square bg-gray-800 mb-4 border-2 border-gray-600 overflow-hidden">
+                    <img src="https://plus.unsplash.com/premium_photo-1678052582115-a36e6258a523?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover mugshot" alt="Espírito Livre">
+                </div>
+                <div class="text-center">
+                    <h3 class="text-cute-pink font-bold text-2xl font-tough uppercase">Coração Selvagem</h3>
+                    <p class="text-xs text-gray-400 font-mono mb-2">ID: #WILD-00</p>
+                    <div class="bg-toxic-green text-black font-bold text-sm px-2 py-1 inline-block transform rotate-1">
+                        CRIME: Amar demais os bichos
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Sticker Gallery -->
-    <section class="py-20 overflow-hidden">
-        <div class="bg-toxic-green transform -rotate-1 py-10 border-y-4 border-black">
-            <div class="container mx-auto px-4 transform rotate-1">
-                <h2 class="text-black font-tough text-5xl text-center mb-12">MURAL DO CAOS</h2>
+    <!-- Nova Seção: Playlist (Sugestão 2) -->
+    <section id="#radio-section" class="py-10 bg-black/30 border-y border-gray-800">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="bg-gray-900 rounded-xl p-6 border-2 border-cute-pink shadow-[0_0_20px_rgba(255,102,196,0.3)] relative overflow-hidden">
+                <!-- Efeito Tape -->
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-electric-blue via-cute-pink to-toxic-green"></div>
                 
-                <div class="flex flex-wrap justify-center gap-8">
-                    <!-- Foto 1 -->
-                    <div class="sticker w-64 h-64 bg-white relative group">
-                        <img src="https://images.unsplash.com/photo-1558980394-0a06c4631733?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover rounded border-2 border-black" alt="Moto">
-                        <div class="absolute -bottom-4 -right-4 bg-cute-pink text-white font-cute text-xl px-4 py-1 rounded-full shadow border-2 border-black transform rotate-12 group-hover:scale-110 transition">
-                            Vrum Vrum!
-                        </div>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="font-tough text-2xl text-white">RÁDIO MORGHY&FLORES FM <span class="text-xs font-mono text-electric-blue align-middle ml-2">LIVE</span> </h2>
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
+                </div>
 
-                    <!-- Foto 2 -->
-                    <div class="sticker w-64 h-64 bg-white relative group transform -rotate-3 mt-8">
-                        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover rounded border-2 border-black" alt="Dog">
-                        <div class="absolute -top-4 -left-4 bg-electric-blue text-black font-tough text-lg px-3 py-1 shadow border-2 border-black transform -rotate-12 group-hover:scale-110 transition">
-                            DANGER: CUTE
+                <!-- Lista de Músicas -->
+                <div class="space-y-2 font-mono text-sm">
+                    <!-- Faixa Principal (Pedido) -->
+                    <a href="https://www.youtube.com/watch?v=yURRmWtbTbo" target="_blank" class="playlist-item block bg-gray-800 p-3 rounded flex justify-between items-center group transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-toxic-green group-hover:animate-spin">▶</span>
+                            <span class="text-white font-bold">Don't Stop 'Til You Get Enough</span>
                         </div>
-                    </div>
+                        <span class="text-gray-500">Michael Jackson</span>
+                    </a>
 
-                    <!-- Foto 3 -->
-                    <div class="sticker w-64 h-64 bg-white relative group transform rotate-6">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover rounded border-2 border-black" alt="Girl">
-                        <div class="absolute bottom-2 left-2 bg-black text-white font-bold px-2 py-1 text-xs uppercase tracking-widest">
-                            Since 1993
+                    <!-- Faixa 2 (Clássico 80s) - ALTERADA -->
+                    <a href="https://www.youtube.com/results?search_query=Take+On+Me+A-ha" target="_blank" class="playlist-item block bg-gray-800 p-3 rounded flex justify-between items-center group transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-500 group-hover:text-electric-blue">▶</span>
+                            <span class="text-gray-300">Take On Me</span>
                         </div>
-                    </div>
+                        <span class="text-gray-500">a-ha</span>
+                    </a>
+
+                    <!-- Faixa 3 (Energia Pura/Anos 80) -->
+                    <a href="https://www.youtube.com/results?search_query=Maniac+Michael+Sembello" target="_blank" class="playlist-item block bg-gray-800 p-3 rounded flex justify-between items-center group transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-500 group-hover:text-cute-pink">▶</span>
+                            <span class="text-gray-300">Maniac (Flashdance)</span>
+                        </div>
+                        <span class="text-gray-500">Michael Sembello</span>
+                    </a>
+
+                    <!-- Faixa 4 (Pop/Princesa + Animais) -->
+                    <a href="https://www.youtube.com/results?search_query=Roar+Katy+Perry" target="_blank" class="playlist-item block bg-gray-800 p-3 rounded flex justify-between items-center group transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-500 group-hover:text-toxic-green">▶</span>
+                            <span class="text-gray-300">Roar</span>
+                        </div>
+                        <span class="text-gray-500">Katy Perry</span>
+                    </a>
+                    
+                    <!-- Faixa 5 (Reggae Pop/Vibe Leve) - ALTERADA -->
+                    <a href="https://www.youtube.com/results?search_query=Rude+Magic" target="_blank" class="playlist-item block bg-gray-800 p-3 rounded flex justify-between items-center group transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-500 group-hover:text-yellow-400">▶</span>
+                            <span class="text-gray-300">Rude</span>
+                        </div>
+                        <span class="text-gray-500">MAGIC!</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 text-center">
+    <footer class="py-16 text-center border-t-2 border-gray-800 bg-black/50">
         <div class="container mx-auto px-4">
-            <h2 class="font-cute text-4xl text-cute-pink mb-4">Geralda Santos</h2>
-            <p class="font-tough text-xl text-gray-500 mb-8">NÃO ENVELHECE, VIRA CLÁSSICO.</p>
-            
-            <div class="flex justify-center gap-4 text-3xl">
-                <a href="#" class="hover:scale-125 transition">🏍️</a>
-                <a href="#" class="hover:scale-125 transition">🐈</a>
-                <a href="#" class="hover:scale-125 transition">🎸</a>
+            <h2 class="font-cute text-4xl text-cute-pink mb-4">Parabéns Vih!</h2>
+            <div class="flex justify-center items-center gap-6 text-4xl my-8">
+                <span class="animate-bounce delay-75">🐶</span>
+                <span class="animate-bounce delay-100">🐱</span>
+                <span class="animate-bounce delay-150">🏍️</span>
+                <span class="animate-bounce delay-200">🎸</span>
+                <span class="animate-bounce delay-300">🌿</span>
             </div>
-
-            <p class="text-xs text-gray-700 mt-12 font-mono">
-                Code by Gemini for the Baddest B* of the Block
-            </p>
+            <p class="font-tough text-xl text-gray-500">NATUREZA & ROCK N ROLL & VITÓRIA!</p>
         </div>
     </footer>
 
     <script>
-        function playRock() {
-            // Efeito visual de "Rock Concert"
+        // Função para iniciar a música e os efeitos
+        function playRock(targetId) {
             const body = document.body;
-            
-            // Flash de luzes
             let count = 0;
             const interval = setInterval(() => {
-                body.style.backgroundColor = count % 2 === 0 ? '#ffffff' : '#0f0f0f';
-                body.style.color = count % 2 === 0 ? '#000000' : '#ffffff';
+                body.style.backgroundColor = count % 2 === 0 ? '#1a0b1a' : '#0f0f0f';
                 count++;
-                if(count > 5) {
+                if(count > 6) {
                     clearInterval(interval);
                     body.style.backgroundColor = '#0f0f0f';
-                    body.style.color = '#ffffff';
                 }
             }, 100);
 
-            // Trocar texto do botão
             const btn = document.querySelector('button');
             const originalText = btn.innerHTML;
-            btn.innerHTML = "<span>🔥</span> É TUDO NOSSO! <span>🔥</span>";
+            btn.innerHTML = "<span>🔥</span> PARTIU ROLÊ! <span>🔥</span>";
             
+            // 1. Chuva de Emojis
+            createEmojiRain();
+
+            // 2. Tocar Música (Método Embed Hidden)
+            // Isso cria um iframe do YouTube invisível que toca automaticamente porque foi disparado por um clique
+            const playerDiv = document.getElementById('hidden-player');
+            playerDiv.innerHTML = '<iframe width="1" height="1" src="https://www.youtube.com/embed/yURRmWtbTbo?autoplay=1&start=15" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            
+            const elementDestination = document.getElementById(targetId);
+
+            if (elementDestination) {
+                elementDestination.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                console.error('elemento não encontrado', targetId);
+            }
+
+        }
+
+        // Easter Egg Logic
+        let clicks = 0;
+        function clickEasterEgg() {
+            clicks++;
+            const counter = document.getElementById('click-counter');
+            
+            // Visual feedback do clique
+            counter.innerText = 5 - clicks;
+            counter.style.opacity = '1';
+            setTimeout(() => counter.style.opacity = '0', 500);
+
+            if (clicks === 5) {
+                document.body.classList.add('party-mode');
+                setInterval(createEmojiRain, 2000);
+                createEmojiRain();
+                
+                const img = document.getElementById('geralda-img');
+                img.style.filter = "contrast(150%) hue-rotate(90deg)";
+                
+                alert("🎉 EASTER EGG DESBLOQUEADO! 🎉\n\nVocê achou o segredo!\nModo Festa Eterna ativado!");
+            }
+        }
+
+        function createEmojiRain() {
+            const emojis = ['🐾', '🦴', '🏍️', '⚡', '💖', '🌿', '🌵', '🎸', '🐱', '👑', '😎'];
+            const container = document.createElement('div');
+            container.style.position = 'fixed';
+            container.style.top = '0';
+            container.style.left = '0';
+            container.style.width = '100%';
+            container.style.height = '100%';
+            container.style.pointerEvents = 'none';
+            container.style.zIndex = '9999';
+            document.body.appendChild(container);
+
+            for (let i = 0; i < 50; i++) {
+                const el = document.createElement('div');
+                el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.position = 'absolute';
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.top = -50 + 'px';
+                el.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                el.style.animation = `fall ${Math.random() * 2 + 1}s linear`;
+                container.appendChild(el);
+            }
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fall {
+                    to { transform: translateY(110vh) rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+
             setTimeout(() => {
-                btn.innerHTML = originalText;
+                container.remove();
             }, 3000);
         }
     </script>
